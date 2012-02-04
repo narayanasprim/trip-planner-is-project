@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Romesh
+ * @author Romesh Malinga Perera
  */
 public class City {
     private String name;

@@ -21,16 +21,19 @@ public class MapGenerator {
     private Map Map;
     
     private ArrayList<City> Cities;
-    
+    private int[][] AdjacencyMatrix;
     
     public MapGenerator(Map newMap) {
         newReader = new XMLReader();
         Map = newMap;
         Cities = new ArrayList<City>();
+        
     }
     public Map Generate(){
         NodeList CityList;
-        Cities = Map.getCities();        
+        NodeList AjMatrix;
+        Cities = Map.getCities();
+        AdjacencyMatrix = Map.getAdjacencyMatrix();
         CityList = newReader.readCityInfo("cityInfo.xml");
         
         for(int s=0; s<CityList.getLength() ; s++){
@@ -56,6 +59,29 @@ public class MapGenerator {
                 Cities.add(newCity);
             }
         }
+
+        AjMatrix = newReader.readAdjacencyMatrix("AdjacencyMatrix.xml");
+        
+        for(int s=0; s<AjMatrix.getLength() ; s++){
+            Node MatrixNode = AjMatrix.item(s);
+            if(MatrixNode.getNodeType() == Node.ELEMENT_NODE){
+                
+                Element MatrixElement = (Element)MatrixNode;
+
+                    //-------
+                    NodeList weightList = MatrixElement.getElementsByTagName("col");
+                    for (int i = 0; i < weightList.getLength(); i++) {
+						Element nameElement = (Element)weightList.item(i);
+						NodeList textFNList = nameElement.getChildNodes();
+	                    AdjacencyMatrix[s][i] = Integer.parseInt(((Node)textFNList.item(0)).getNodeValue().trim());
+					}
+                    
+
+                    
+            }
+        }
+        
+        Map.setAdjacencyMatrix(AdjacencyMatrix);
         Map.setCities(Cities);
         return Map;
      }

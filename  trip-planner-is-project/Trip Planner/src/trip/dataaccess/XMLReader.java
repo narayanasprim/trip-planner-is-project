@@ -46,6 +46,31 @@ public class XMLReader {
         
     }
     
+public NodeList readAdjacencyMatrix(String filename){
+        
+        NodeList listOfcities = null;
+        try {
+            DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+            Document doc = (Document) docBuilder.parse (new File("src\\data\\"+filename));
+            
+            // normalize text representation
+            doc.getDocumentElement().normalize();
+            listOfcities = doc.getElementsByTagName("row");
+
+            
+        } catch (SAXException ex) {
+            Logger.getLogger(XMLReader.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(XMLReader.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(XMLReader.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return listOfcities;
+        
+    }
+    
     public NodeList readMapper(String filename){
         
         NodeList mapping = null;

@@ -20,6 +20,7 @@ public class TripPlanner {
         MapGenerator MapGenerator = new MapGenerator(Map);
         
         Map = MapGenerator.Generate();
-        System.out.println("Done");
+        System.out.print("hi");
+        
     }
 }

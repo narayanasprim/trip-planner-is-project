@@ -13,9 +13,8 @@ public class Map {
     private ArrayList<City> Cities;
 
     public Map() {
-        mapSize = 20;
-        AdjacencyMatrix = new int[mapSize][mapSize];
-        AdjacencyMatrix[0][0] = 23;
+        mapSize = 11;
+        setAdjacencyMatrix(new int[mapSize][mapSize]);
         Cities = new ArrayList<City>();
     }
 
@@ -32,6 +31,14 @@ public class Map {
     public void setCities(ArrayList<City> Cities) {
         this.Cities = Cities;
     }
+
+	public int[][] getAdjacencyMatrix() {
+		return AdjacencyMatrix;
+	}
+
+	public void setAdjacencyMatrix(int[][] adjacencyMatrix) {
+		AdjacencyMatrix = adjacencyMatrix;
+	}
     
     
     

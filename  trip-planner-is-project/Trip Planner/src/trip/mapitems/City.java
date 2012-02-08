@@ -11,12 +11,14 @@ import java.util.ArrayList;
  * @author Romesh Malinga Perera
  */
 public class City {
+	private int id;
     private String name;
     private ArrayList<View> views;
     private ArrayList<Meal> Meals;
     private ArrayList<Bed> Beds;
 
     public City() {
+    	setId(-1);
        name = "";
        views = new ArrayList<View>();
        Meals = new ArrayList<Meal>();
@@ -79,6 +81,14 @@ public class City {
     public void setBeds(ArrayList<Bed> Beds) {
         this.Beds = Beds;
     }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
     
     
 }

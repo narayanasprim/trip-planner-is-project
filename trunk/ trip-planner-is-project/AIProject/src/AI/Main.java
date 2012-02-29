@@ -104,7 +104,6 @@ class Edge
 	                             new Edge(v5,  87.94) };
 	Vertex[] vertices = { v0, v1, v2, v3, v4, v5, v6 };
 
-
         computePaths(v0);
       
 	    System.out.println("Distance to " + v1 + ": " + v1.minDistance);

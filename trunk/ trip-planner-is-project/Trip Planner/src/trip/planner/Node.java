@@ -9,7 +9,7 @@ public class Node implements Comparable<Node>{
 	private int id = -1;
 	private int weight = 0;
 	private Node pre = null;
-	
+	private int state = 0;	//0-not discovered, 1-discovered, 2-finished
 	public Node() {
 		this(0);
 	}
@@ -59,5 +59,19 @@ public class Node implements Comparable<Node>{
 	 */
 	public void setPre(Node pre) {
 		this.pre = pre;
+	}
+
+	/**
+	 * @return the state
+	 */
+	public int getState() {
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(int state) {
+		this.state = state;
 	}
 }

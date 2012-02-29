@@ -6,6 +6,7 @@ package trip.planner;
 
 import java.util.ArrayList;
 
+
 import trip.dataaccess.MapGenerator;
 import trip.mapitems.City;
 
@@ -43,9 +44,7 @@ public class TripPlanner {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-    	
-        
+    public static void main(String[] args) {        
     }
     
     public ArrayList<Node> makeRoute(Node Source, Node Target) {
@@ -67,10 +66,10 @@ public class TripPlanner {
     		Node MinDistance = findMinimumDistance(discovered);
     		finished.add(MinDistance);
     		ArrayList<Node> neighbours = getNeighbours(MinDistance, nodes);
-    		if(isTargetFound(neighbours, Target)!=-1){
-    			Target = neighbours.get(isTargetFound(neighbours, Target));
-    			break;
-    		}
+//    		if(isTargetFound(neighbours, Target)!=-1){
+//    			Target = neighbours.get(isTargetFound(neighbours, Target));
+//    			break;
+//    		}
     		discovered.addAll(neighbours);
     		discovered.remove(MinDistance);
     		
@@ -98,6 +97,7 @@ public class TripPlanner {
 		}
     	return MinDistance;
     } 
+    
     
     public ArrayList<Node> getNeighbours(Node Node, Node[] nodes) {
     	ArrayList<Node> neighbours = new ArrayList<Node>();

@@ -49,6 +49,13 @@ public class MapGenerator {
                     NodeList textFNList = nameElement.getChildNodes();
                     newCity.setName(((Node)textFNList.item(0)).getNodeValue().trim());
                     
+                    //-------
+                    NameList = cityElement.getElementsByTagName("id");
+                    Element idElement = (Element)NameList.item(0);
+
+                    textFNList = idElement.getChildNodes();
+                    newCity.setId(Integer.parseInt(((Node)textFNList.item(0)).getNodeValue().trim()));
+                    
                     
                     
                 newCity.setViews(setCityViews(cityElement.getElementsByTagName("visit")));

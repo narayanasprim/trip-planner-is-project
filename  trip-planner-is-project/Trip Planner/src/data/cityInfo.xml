@@ -5,46 +5,47 @@ and open the template in the editor.
 -->
 <root>
     <city>
+    	<id>0</id>
         <name>Anuradapuraya</name>
             <visit>
-		<name>ruwanwali mahasaya</name>
+				<name>ruwanwali mahasaya</name>
                 <cost>0</cost>
-		<time>60</time>
+				<time>60</time>
             </visit>
             <visit>
-		<name>mirisawatiya</name>
+				<name>mirisawatiya</name>
                 <cost>0</cost>
-		<time>60</time>
+				<time>60</time>
             </visit>
             <visit>
-		<name>abegiriya</name>
+				<name>abegiriya</name>
                 <cost>0</cost>
-		<time>60</time>
+				<time>60</time>
             </visit>
 		
             <meals>
-		<name>ABC resturent</name>
+				<name>ABC resturent</name>
                 <cost>0</cost>
-		<time>30</time>
+				<time>30</time>
             </meals>
             <meals>
             	<name>daily inn</name>
                 <cost>0</cost>
-		<time>30</time>
+				<time>30</time>
             </meals>
         
             <bed>
-		<name>CDE resturent</name>
-		<cost>10000</cost>
+				<name>CDE resturent</name>
+				<cost>10000</cost>
             </bed>
             <bed>
             	<name>daily inn</name>
-		<cost>6000</cost>
+				<cost>6000</cost>
             </bed>
-		
     </city>
     
     <city>
+    	<id>1</id>
         <name>Batticaloa</name>
         <visit>
 			<name>vatadage</name>
@@ -83,6 +84,7 @@ and open the template in the editor.
         </bed>	
     </city>
 	<city>
+		<id>2</id>
         <name>Colombo</name>
         <visit>
 			<name>vatadage</name>
@@ -121,6 +123,7 @@ and open the template in the editor.
         </bed>	
     </city>
 	<city>
+		<id>3</id>
         <name>Gall</name>
         <visit>
 			<name>vatadage</name>
@@ -159,6 +162,7 @@ and open the template in the editor.
         </bed>	
     </city>
 	<city>
+		<id>4</id>
         <name>Jaffna</name>
         <visit>
 			<name>vatadage</name>
@@ -191,6 +195,7 @@ and open the template in the editor.
         </bed>	
     </city>
 	<city>
+		<id>5</id>
         <name>Jaffna</name>
         <visit>
 			<name>vatadage</name>
@@ -223,6 +228,7 @@ and open the template in the editor.
         </bed>	
     </city>
 	<city>
+		<id>6</id>
         <name>Kandy</name>
         <visit>
 			<name>vatadage</name>
@@ -255,6 +261,7 @@ and open the template in the editor.
         </bed>	
     </city>
 	<city>
+		<id>7</id>
         <name>Manna</name>
         <visit>
 			<name>vatadage</name>
@@ -287,6 +294,7 @@ and open the template in the editor.
         </bed>	
     </city>
 	<city>
+		<id>8</id>
         <name>Polonnaruwa</name>
             <visit>
 		<name>vatadage</name>
@@ -324,7 +332,9 @@ and open the template in the editor.
 		<cost>6000</cost>
             </bed>
 		
-    </city><city>
+    </city>
+    <city>
+    	<id>9</id>
         <name>Sinharaja</name>
         <visit>
 			<name>vatadage</name>
@@ -357,6 +367,7 @@ and open the template in the editor.
         </bed>	
     </city>
 	<city>
+		<id>10</id>
         <name>Trincomalee</name>
         <visit>
 			<name>vatadage</name>
@@ -389,6 +400,7 @@ and open the template in the editor.
         </bed>	
     </city>
 	<city>
+		<id>11</id>
         <name>Yala</name>
         <visit>
 			<name>vatadage</name>

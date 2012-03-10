@@ -37,7 +37,7 @@ public class TripPlanner {
     	preferedPlaces.add(2);
     	preferedPlaces.add(5);
     	preferedPlaces.add(3);
-    	int start = 0;
+    	int start = 4;
     	(new TripPlanner()).getRoute(preferedPlaces, start);
     }
     

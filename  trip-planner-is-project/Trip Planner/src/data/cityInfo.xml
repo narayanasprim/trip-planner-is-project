@@ -8,39 +8,39 @@ and open the template in the editor.
     	<id>0</id>
         <name>Anuradapuraya</name>
             <visit>
-				<name>ruwanwali mahasaya</name>
+		<name>ruwanwali mahasaya</name>
                 <cost>0</cost>
-				<time>60</time>
+		<time>120</time>
             </visit>
             <visit>
-				<name>mirisawatiya</name>
+		<name>mirisawatiya</name>
                 <cost>0</cost>
-				<time>60</time>
+		<time>90</time>
             </visit>
             <visit>
-				<name>abegiriya</name>
+		<name>abegiriya</name>
                 <cost>0</cost>
-				<time>60</time>
+		<time>100</time>
             </visit>
 		
             <meals>
-				<name>ABC resturent</name>
+		<name>ABC resturent</name>
                 <cost>0</cost>
-				<time>30</time>
+		<time>30</time>
             </meals>
             <meals>
             	<name>daily inn</name>
                 <cost>0</cost>
-				<time>30</time>
+		<time>30</time>
             </meals>
         
             <bed>
-				<name>CDE resturent</name>
-				<cost>10000</cost>
+		<name>CDE resturent</name>
+		<cost>10000</cost>
             </bed>
             <bed>
             	<name>daily inn</name>
-				<cost>6000</cost>
+		<cost>6000</cost>
             </bed>
     </city>
     
@@ -50,17 +50,17 @@ and open the template in the editor.
         <visit>
 			<name>vatadage</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>90</time>
         </visit>
         <visit>
 			<name>kuttan pokuna</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>130</time>
         </visit>
         <visit>
 			<name>thisa wawa</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>150</time>
         </visit>
 		
         <meals>
@@ -89,12 +89,12 @@ and open the template in the editor.
         <visit>
 			<name>vatadage</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>80</time>
         </visit>
         <visit>
 			<name>kuttan pokuna</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>140</time>
         </visit>
         <visit>
 			<name>thisa wawa</name>
@@ -120,7 +120,7 @@ and open the template in the editor.
         <bed>
             <name>daily inn</name>
 			<cost>6000</cost>
-        </bed>	
+        </bed>		
     </city>
 	<city>
 		<id>3</id>
@@ -128,17 +128,17 @@ and open the template in the editor.
         <visit>
 			<name>vatadage</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>50</time>
         </visit>
         <visit>
 			<name>kuttan pokuna</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>120</time>
         </visit>
         <visit>
 			<name>thisa wawa</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>150</time>
         </visit>
 		
         <meals>
@@ -159,7 +159,7 @@ and open the template in the editor.
         <bed>
             <name>daily inn</name>
 			<cost>6000</cost>
-        </bed>	
+        </bed>		
     </city>
 	<city>
 		<id>4</id>
@@ -167,12 +167,12 @@ and open the template in the editor.
         <visit>
 			<name>vatadage</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>90</time>
         </visit>
         <visit>
 			<name>thisa wawa</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>45</time>
         </visit>
 		
         <meals>
@@ -192,7 +192,7 @@ and open the template in the editor.
         <bed>
             <name>daily inn</name>
 			<cost>6000</cost>
-        </bed>	
+        </bed>
     </city>
 	<city>
 		<id>5</id>
@@ -200,12 +200,12 @@ and open the template in the editor.
         <visit>
 			<name>vatadage</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>80</time>
         </visit>
         <visit>
 			<name>thisa wawa</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>90</time>
         </visit>
 		
         <meals>
@@ -233,12 +233,12 @@ and open the template in the editor.
         <visit>
 			<name>vatadage</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>90</time>
         </visit>
         <visit>
 			<name>thisa wawa</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>40</time>
         </visit>
 		
         <meals>
@@ -262,16 +262,16 @@ and open the template in the editor.
     </city>
 	<city>
 		<id>7</id>
-        <name>Manna</name>
+        <name>Mannar</name>
         <visit>
 			<name>vatadage</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>45</time>
         </visit>
         <visit>
 			<name>thisa wawa</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>80</time>
         </visit>
 		
         <meals>
@@ -299,17 +299,17 @@ and open the template in the editor.
             <visit>
 		<name>vatadage</name>
                 <cost>0</cost>
-		<time>60</time>
+		<time>80</time>
             </visit>
             <visit>
 		<name>kuttan pokuna</name>
                 <cost>0</cost>
-		<time>60</time>
+		<time>50</time>
             </visit>
             <visit>
 		<name>thisa wawa</name>
                 <cost>0</cost>
-		<time>60</time>
+		<time>120</time>
             </visit>
 		
             <meals>
@@ -339,12 +339,12 @@ and open the template in the editor.
         <visit>
 			<name>vatadage</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>130</time>
         </visit>
         <visit>
 			<name>thisa wawa</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>300</time>
         </visit>
 		
         <meals>
@@ -364,7 +364,7 @@ and open the template in the editor.
         <bed>
             <name>daily inn</name>
 			<cost>6000</cost>
-        </bed>	
+        </bed>		
     </city>
 	<city>
 		<id>10</id>
@@ -377,7 +377,7 @@ and open the template in the editor.
         <visit>
 			<name>thisa wawa</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>150</time>
         </visit>
 		
         <meals>
@@ -405,12 +405,12 @@ and open the template in the editor.
         <visit>
 			<name>vatadage</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>70</time>
         </visit>
         <visit>
 			<name>thisa wawa</name>
             <cost>0</cost>
-			<time>60</time>
+			<time>600</time>
         </visit>
 		
         <meals>

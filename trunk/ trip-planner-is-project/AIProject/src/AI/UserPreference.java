@@ -13,11 +13,13 @@ import mapitems.City;
  * @author Harsha
  */
 public class UserPreference {
-
+    private String startCity;
+    private int startCityId;
     private int noOfDays;
     private boolean breakFast;
     private boolean eveningMeal;
     private boolean dinner;
+    private boolean lunch;
     private double lunchTime;
     private double breakFirstTime;
     private double eveningMealTime;
@@ -25,8 +27,8 @@ public class UserPreference {
     private double dinnerTime;
     private double arrivalTime;
     private List<UserData> data;
-
-    public UserPreference() {
+    public UserPreference()
+    {
         data = new ArrayList<UserData>();
 
     }
@@ -188,4 +190,57 @@ public class UserPreference {
     public void setDinnerTime(double dinnerTime) {
         this.dinnerTime = dinnerTime;
     }
+
+    /**
+     * @return the startCity
+     */
+    public String getStartCity() {
+        return startCity;
+    }
+
+    /**
+     * @param startCity the startCity to set
+     */
+    public void setStartCity(String startCity) {
+        this.startCity = startCity;
+    }
+
+    /**
+     * @return the startCityId
+     */
+    public int getStartCityId() {
+        return startCityId;
+    }
+
+    /**
+     * @param startCityId the startCityId to set
+     */
+    public void setStartCityId(int startCityId) {
+        this.startCityId = startCityId;
+    }
+    public ArrayList<Integer> getSelectedCityId()
+    {
+        ArrayList<Integer> cityId=new ArrayList<Integer>();
+        for(int i=0;i<data.size();i++)
+        {
+            cityId.add(data.get(i).getCityId());
+        }
+        return cityId;
+    }
+
+    /**
+     * @return the lunch
+     */
+    public boolean isLunch() {
+        return lunch;
+    }
+
+    /**
+     * @param lunch the lunch to set
+     */
+    public void setLunch(boolean lunch) {
+        this.lunch = lunch;
+    }
+
+
 }

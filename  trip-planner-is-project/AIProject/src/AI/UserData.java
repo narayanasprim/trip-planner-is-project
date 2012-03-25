@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class UserData {
 private String cityName;
+private int CityId;
 private ArrayList<String> locations;
 
     public UserData() {
@@ -49,5 +50,19 @@ private ArrayList<String> locations;
      */
     public void setLocations(ArrayList<String> locations) {
         this.locations = locations;
+    }
+
+    /**
+     * @return the CityId
+     */
+    public int getCityId() {
+        return CityId;
+    }
+
+    /**
+     * @param CityId the CityId to set
+     */
+    public void setCityId(int CityId) {
+        this.CityId = CityId;
     }
 }

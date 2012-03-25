@@ -11,7 +11,12 @@
 
 package UserInterface;
 
+import AI.PlaceRoute;
+import AI.UserPlanOut;
 import AI.UserPreference;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,7 +41,7 @@ private UserPreference preference;
         {
             for(int j=0;j<preference.getData().get(i).getLocations().size();j++)
             {
-             jTextArea1.append(preference.getData().get(i).getLocations().get(i)+"-"+preference.getData().get(i).getCityName()+"\n");
+             jTextArea1.append(preference.getData().get(i).getLocations().get(j)+"-"+preference.getData().get(i).getCityName()+"\n");
             }
         }
         jTextArea1.append("\n");
@@ -52,7 +57,7 @@ private UserPreference preference;
         }
         else
         {
-            jTextArea1.append("Breakfirst is on the journeyaround: "+Double.toString(preference.getBreakFirstTime())+"AM\n");
+            jTextArea1.append("Breakfirst is on the journey around: "+Double.toString(preference.getBreakFirstTime())+"AM\n");
         }
         jTextArea1.append("Lunch is around around: "+Double.toString(preference.getLunchTime()-12)+"PM\n");
         if(preference.isEveningMeal())
@@ -86,6 +91,11 @@ private UserPreference preference;
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setText("Show Plan");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,6 +120,25 @@ private UserPreference preference;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      PlaceRoute place=new PlaceRoute(preference);
+      System.out.println("noh"+preference.getSelectedCityId().size());
+      ArrayList<Integer> ii=preference.getSelectedCityId();
+      for(int i=0;i<ii.size();i++)
+      {
+          System.out.println(ii.get(i));
+      }
+      UserPlanOut plan=place.planRoute(preference);
+      if(plan.isIsPossible())
+      {
+      PlanOut planOut=new PlanOut(plan);
+       }
+        else
+      {
+          JOptionPane.showMessageDialog(new JFrame(), "Trip is not possible withing given contraints");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
     * @param args the command line arguments

@@ -22,7 +22,6 @@ public class UserPreferenceList extends javax.swing.JFrame {
     /** Creates new form UserPreference */
     public UserPreferenceList(UserPreference preference) {
         this.preference=preference;
-
         initComponents();
         setLocationRelativeTo(this);
         setVisible(true);
@@ -62,6 +61,8 @@ public class UserPreferenceList extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        lunchOk = new javax.swing.JCheckBox();
+        LunchNo = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -127,7 +128,7 @@ public class UserPreferenceList extends javax.swing.JFrame {
 
         jLabel10.setText("Breakfast");
 
-        eAtPlace.setText("At a place");
+        eAtPlace.setText("At a meal place");
         eAtPlace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eAtPlaceActionPerformed(evt);
@@ -158,21 +159,34 @@ public class UserPreferenceList extends javax.swing.JFrame {
 
         jLabel17.setText("PM");
 
+        lunchOk.setText("On the journey");
+        lunchOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lunchOkActionPerformed(evt);
+            }
+        });
+
+        LunchNo.setText("At a meal place");
+        LunchNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LunchNoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(236, 236, 236)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dNo)
-                            .addComponent(eAtPlace))
-                        .addGap(44, 44, 44))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(bMealPlace)
-                        .addGap(18, 18, 18)))
+                .addGap(104, 104, 104)
+                .addComponent(lunchOk, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LunchNo)
+                    .addComponent(dNo)
+                    .addComponent(eAtPlace)
+                    .addComponent(bMealPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
@@ -204,7 +218,7 @@ public class UserPreferenceList extends javax.swing.JFrame {
                         .addComponent(bOnJourney)
                         .addComponent(dYes)
                         .addComponent(eOnJourney))
-                    .addContainerGap(307, Short.MAX_VALUE)))
+                    .addContainerGap(387, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,12 +243,19 @@ public class UserPreferenceList extends javax.swing.JFrame {
                             .addComponent(jLabel17)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5))
+                            .addComponent(jLabel4)
                             .addComponent(bMealPlace))
-                        .addGap(8, 8, 8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(lunchOk)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(LunchNo)))
+                        .addGap(7, 7, 7)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(eAtPlace)
                             .addComponent(jLabel6))
@@ -242,7 +263,7 @@ public class UserPreferenceList extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(dNo)
                             .addComponent(jLabel11))))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(27, 27, 27)
@@ -259,7 +280,7 @@ public class UserPreferenceList extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
                         .addComponent(dYes))
-                    .addContainerGap(84, Short.MAX_VALUE)))
+                    .addContainerGap(91, Short.MAX_VALUE)))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Journey Details"));
@@ -285,19 +306,12 @@ public class UserPreferenceList extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(55, 55, 55))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(ArrivalTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -371,10 +385,18 @@ public class UserPreferenceList extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       preference.setStartTime(Double.parseDouble(StartTime.getSelectedItem().toString()));
+        preference.setNoOfDays(Integer.parseInt(journeyDays.getSelectedItem().toString()));
+        preference.setStartTime(Double.parseDouble(StartTime.getSelectedItem().toString()));
         preference.setArrivalTime(Double.parseDouble(ArrivalTime.getSelectedItem().toString())+12);
         preference.setBreakFirstTime(Double.parseDouble(bTime.getSelectedItem().toString()));
+        if(!lTime.getSelectedItem().toString().equalsIgnoreCase("12"))
+        {
          preference.setLunchTime(Double.parseDouble(lTime.getSelectedItem().toString())+12);
+        }
+        else
+        {
+            preference.setLunchTime(Double.parseDouble(lTime.getSelectedItem().toString()));
+        }
           preference.setEveningMealTime(Double.parseDouble(eTime.getSelectedItem().toString())+12);
            preference.setDinnerTime(Double.parseDouble(dTime.getSelectedItem().toString())+12);
            if(bOnJourney.isSelected())
@@ -401,6 +423,14 @@ public class UserPreferenceList extends javax.swing.JFrame {
            {
                preference.setDinner(false);
            }
+           if(lunchOk.isSelected())
+           {
+               preference.setLunch(true);
+           }
+            else
+           {
+               preference.setLunch(false);
+            }
            UserPreferenceShow show=new UserPreferenceShow(preference);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -446,6 +476,20 @@ public class UserPreferenceList extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_dNoActionPerformed
 
+    private void lunchOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lunchOkActionPerformed
+        if(LunchNo.isSelected())
+        {
+            LunchNo.setSelected(false);
+        }
+    }//GEN-LAST:event_lunchOkActionPerformed
+
+    private void LunchNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LunchNoActionPerformed
+         if(lunchOk.isSelected())
+        {
+            lunchOk.setSelected(false);
+        }
+    }//GEN-LAST:event_LunchNoActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -459,6 +503,7 @@ public class UserPreferenceList extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ArrivalTime;
+    private javax.swing.JCheckBox LunchNo;
     private javax.swing.JComboBox StartTime;
     private javax.swing.JCheckBox bMealPlace;
     private javax.swing.JCheckBox bOnJourney;
@@ -492,6 +537,7 @@ public class UserPreferenceList extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox journeyDays;
     private javax.swing.JComboBox lTime;
+    private javax.swing.JCheckBox lunchOk;
     // End of variables declaration//GEN-END:variables
 
 }

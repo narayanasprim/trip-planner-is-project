@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import mapitems.City;
 import mapitems.View;
 import AI.UserPreference;
+import planner.TripPlanner;
 
 /**
  *
@@ -35,8 +36,10 @@ public class ClientInterface extends javax.swing.JFrame {
         this.cities=city;
         initComponents();
         setCityComboBox();
+        setLocationRelativeTo(this);
         jTextArea1.append("Current Location Addings \n");
-
+        done.setEnabled(false);
+        print();
        
     }
     public void setCityComboBox()
@@ -44,6 +47,7 @@ public class ClientInterface extends javax.swing.JFrame {
         for(int i=0;i<cities.size();i++)
         {
            jComboBox1.addItem(cities.get(i).getName());
+           strat.addItem(cities.get(i).getName());
         }
 
     }
@@ -76,8 +80,12 @@ public class ClientInterface extends javax.swing.JFrame {
         locationCombo = new javax.swing.JComboBox();
         jButton4 = new javax.swing.JButton();
         done = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        strat = new javax.swing.JComboBox();
+        start = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Trip Planner");
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -141,7 +149,7 @@ public class ClientInterface extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,7 +218,7 @@ public class ClientInterface extends javax.swing.JFrame {
             }
         });
 
-        done.setText("Done");
+        done.setText("Done Adding");
         done.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doneActionPerformed(evt);
@@ -222,28 +230,37 @@ public class ClientInterface extends javax.swing.JFrame {
         addLayout.setHorizontalGroup(
             addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(done, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(done, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
                 .addContainerGap())
         );
         addLayout.setVerticalGroup(
             addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addContainerGap()
                 .addGroup(addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
                     .addComponent(jLabel4)
-                    .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                    .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addGap(18, 18, 18)
                 .addComponent(done)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        jLabel6.setText("StartCity");
+
+        start.setText("Ok");
+        start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -255,33 +272,48 @@ public class ClientInterface extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(add, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(strat, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                                        .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(next, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(438, 438, 438)
+                                .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(next))
+                        .addGap(77, 77, 77)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(strat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(start))
+                        .addGap(37, 37, 37)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(27, 27, 27)
                         .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(next)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -299,37 +331,74 @@ public class ClientInterface extends javax.swing.JFrame {
             visitingPlaceTable.setModel(mode);
             String headers[] = new String[2];
             headers[0] = "LocationName";
-            headers[1] = "Estimate Time(Hours)";
+            headers[1] = "Estimate Time(Mins)";
             mode.setColumnIdentifiers(headers);
             City city=getCity(jComboBox1.getSelectedItem().toString());
+            locationCombo.removeAllItems();
             for(int i=0;i<city.getViews().size();i++)
             {
             Vector<Object> v=new Vector<Object>();
-            v.addElement(cities.get(i).getViews().get(i).getName());
-            v.addElement(cities.get(i).getViews().get(i).getTime());
-            locationCombo.addItem(cities.get(i).getViews().get(i).getName());
+            v.addElement(city.getViews().get(i).getName());
+            v.addElement(city.getViews().get(i).getTime());
+            locationCombo.addItem(city.getViews().get(i).getName());
             mode.addRow(v);
             }
             data=new UserData();
             data.setCityName(jComboBox1.getSelectedItem().toString());
+            data.setCityId(getCityId(jComboBox1.getSelectedItem().toString()));
+            done.setEnabled(true);
+            jButton3.setEnabled(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+    public int getCityId(String name)
+    {
+       for(int i=0;i<cities.size();i++)
+       {
+           if(cities.get(i).getName().equalsIgnoreCase(name))
+           {
+               System.out.println("Found"+cities.get(i).getId());
+               return cities.get(i).getId();
+           }
+       }
+       return 0;
+    }
+    public void print()
+    {
+        for(int i=0;i<cities.size();i++)
+        {
+            System.out.println(cities.get(i).getName());
+            for(int j=0;j<cities.get(i).getViews().size();j++)
+            {
+                System.out.println(cities.get(i).getViews().get(j).getName());
+            }
+        }
+    }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
        data.addLocation(locationCombo.getSelectedItem().toString());
-        jTextArea1.append(locationCombo.getSelectedItem().toString()+"-"+data.getCityName());
+        jTextArea1.append(locationCombo.getSelectedItem().toString()+"-"+data.getCityName()+"\n");
        locationCombo.removeItem(locationCombo.getSelectedItem());
       
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneActionPerformed
     preference1.setUserData(data);
+    System.out.println(data.getCityId());
+    done.setEnabled(false);
+    jButton3.setEnabled(true);
     }//GEN-LAST:event_doneActionPerformed
 
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
        UserPreferenceList list=new UserPreferenceList(preference1);
 
     }//GEN-LAST:event_nextActionPerformed
+
+    private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
+        preference1.setStartCity(strat.getSelectedItem().toString());
+        preference1.setStartCityId(getCityId(strat.getSelectedItem().toString()));
+        System.out.println(getCityId(strat.getSelectedItem().toString()));
+        start.setEnabled(false);
+    }//GEN-LAST:event_startActionPerformed
     public City getCity(String name)
     {
         for(int i=0;i<cities.size();i++)
@@ -345,18 +414,11 @@ public class ClientInterface extends javax.swing.JFrame {
     * @param args the command line arguments
     */
     public static void main(String args[]) {
+
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                View v=new View();
-                v.setName("Down");
-                v.setTime(20);
-                ArrayList<View> x1=new ArrayList<View>();
-                x1.add(v);
-                City city1=new City();
-                city1.setName("Yahoo");
-                city1.setViews(x1);
-                List<City> city=new ArrayList<City>();
-                city.add(city1);
+            public void run() {     
+                TripPlanner planer =new TripPlanner();
+                List<City> city=planer.getMap().getCities();
                 new ClientInterface(new UserPreference(),city).setVisible(true);
             }
         });
@@ -373,6 +435,7 @@ public class ClientInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -381,6 +444,8 @@ public class ClientInterface extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JComboBox locationCombo;
     private javax.swing.JButton next;
+    private javax.swing.JButton start;
+    private javax.swing.JComboBox strat;
     private javax.swing.JTable visitingPlaceTable;
     // End of variables declaration//GEN-END:variables
 
